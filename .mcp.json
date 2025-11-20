@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "jfrog-fly": {
+      "type": "http",
+      "url": "http://localhost:33555/mcp"
+    }
+  }
+}
