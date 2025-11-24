@@ -1,5 +1,5 @@
 # Build stage
-FROM viktorfarcic.jfrog.io/docker/node:20-alpine AS builder
+FROM node:20-alpine AS builder
 
 WORKDIR /app
 
@@ -7,7 +7,7 @@ WORKDIR /app
 COPY package*.json ./
 
 # Install dependencies
-RUN npm install
+RUN npm ci
 
 # Copy source code
 COPY tsconfig.json ./
@@ -17,7 +17,7 @@ COPY src ./src
 RUN npm run build
 
 # Production stage
-FROM viktorfarcic.jfrog.io/docker/node:20-alpine
+FROM node:20-alpine
 
 WORKDIR /app
 
